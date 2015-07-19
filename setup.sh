@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Install manifest
-cp roomservice.xml .repo/local_manifests/roomservice.xml
-
 # Grab all Samsung Galaxy Tab 4 7.0 (T235) patches
 
 # BUILD
