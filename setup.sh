@@ -1,35 +1,69 @@
 #!/bin/bash
 
-# Grab all Samsung Galaxy Tab 4 7.0 (T235) patches
+WORK_DIR=`pwd`
 
-# BUILD
-cd build
+CM_BRANCH=cm-12.1
 
-# Recovery: remove wiping of res folder
-# TODO: remove. Already fixed by 3454ade92db48236057814f0ade5fa45bd57cd62 (uses /twres now)
-#git fetch https://github.com/omnirom/android_build.git android-5.0
-#git cherry-pick 12df78d8848325537d64ff0d0370aac6af203866
-cd -
+if [ ! -d bionic ]; then
+  echo "This script must be executed from the CyanogenMod root directory"
+  exit
+fi
 
-# FRAMEWORK
-cd frameworks/av
+function git-patch {
+  if git ls-remote $1 &> /dev/null; then
+    echo "Remote already exists"
+  else
+    git remote add $1 $2 || return 1
+  fi
+  
+  #git reset --hard github/$3
+  #echo
+  
+  #git cherry github/$3 cm-3470/$3
+  
+  git pull --no-edit $1 $3 || return 2
+  git rebase github/$3 || return 3
+}
 
-# Add Samsung WFD Service -- required for HWComposer
-git fetch https://github.com/cm-3470/android_frameworks_av.git cm-12.1
-git cherry-pick d4848efbd5650a48f93a784e5de248a13b830c04
-cd -
+# Grab all Samsung Galaxy Tab 4 7" (T235) patches
 
-cd frameworks/native
+# recovery might be replaced by TWRP -> only patch if CM recovery is used
+echo "Patching bootable/recovery"
+cd bootable/recovery
+recovery_url=`git config --get remote.github.url`
+if [ "$recovery_url" = "https://github.com/CyanogenMod/android_bootable_recovery" ]; then
+  git-patch cm-3470 https://github.com/cm-3470/android_bootable_recovery.git $CM_BRANCH || exit 1
+else
+  echo "WARN: Recovery does not seem to be CM one -> patches will not be applied"
+fi
+cd $WORK_DIR
 
-# Revert "Remove Parcel::writeIntPtr."
-git fetch https://github.com/cm-3470/android_frameworks_native.git cm-12.1
-git cherry-pick ce3244f93e8c42ba0f67b449647d2c2e2b5c2f76
-cd -
+# list of repositories with custom patches
+declare -A repos
+repos=(
+    ["frameworks/av"]="https://github.com/cm-3470/android_frameworks_av.git"
+    ["frameworks/base"]="https://github.com/cm-3470/android_frameworks_base.git"
+    ["frameworks/native"]="https://github.com/cm-3470/android_frameworks_native.git"
+    ["frameworks/opt/telephony"]="https://github.com/cm-3470/android_frameworks_opt_telephony.git"
+    ["packages/apps/Camera2"]="https://github.com/cm-3470/android_packages_apps_Camera2.git"
+)
 
-cd frameworks/base
+# apply patches on selected repositories
+for repo in "${!repos[@]}"; do
+  echo "Patching $repo"  
+  cd $repo
+  git-patch cm-3470 ${repos[$repo]} $CM_BRANCH || exit 1
+  cd $WORK_DIR
+done
 
-# Fix volume key music controls and wake up
-#git fetch https://github.com/cm-3470/android_frameworks_base.git cm-12.1
-#git cherry-pick f92549d029b64a6a822d155cf76179f1e280bdcd
-cd -
-
+# set to true if you want to replace CM recovery with TWRP recovery
+if false; then
+    echo "Replacing recovery with TWRP"
+    cd bootable
+    mv recovery recovery.orig
+    git clone https://github.com/omnirom/android_bootable_recovery recovery.twrp || exit 1
+    ln -s recovery.twrp recovery
+    cd recovery
+    git checkout android-5.1 || exit 1
+    cd $WORK_DIR
+fi
