@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <!-- replace recovery with TWRP -->
-  <remove-project name="CyanogenMod/android_bootable_recovery" />
+  <!--remove-project name="CyanogenMod/android_bootable_recovery" />
   <project name="omnirom/android_bootable_recovery"     path="bootable/recovery" remote="github" revision="android-6.0" />  
-  <project name="CyanogenMod/android_external_busybox"  path="external/busybox"  remote="github" />  
+  <project name="CyanogenMod/android_external_busybox"  path="external/busybox"  remote="github" /-->  
 </manifest>
