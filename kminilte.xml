@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <project name="cm-3470/android_device_samsung_kminilte" path="device/samsung/kminilte" remote="github" revision="refs/heads/cm-14.0" />
-  <project name="cm-3470/android_vendor_samsung_kminilte" path="vendor/samsung/kminilte" remote="github" revision="refs/heads/cm-14.0" />
-  <project name="cm-3470/android_kernel_samsung_kminilte" path="kernel/samsung/kminilte" remote="github" revision="refs/heads/cm-14.0" />
+  <project name="cm-3470/android_device_samsung_kminilte" path="device/samsung/kminilte" remote="github" />
+  <project name="cm-3470/android_vendor_samsung_kminilte" path="vendor/samsung/kminilte" remote="github" />
+  <project name="cm-3470/android_kernel_samsung_kminilte" path="kernel/samsung/kminilte" remote="github" />
 </manifest>
