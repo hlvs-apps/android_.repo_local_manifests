@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <!-- replace recovery with TWRP -->
+  <!--
   <remove-project name="LineageOS/android_bootable_recovery" />
-  <project name="omnirom/android_bootable_recovery"     path="bootable/recovery" remote="github" revision="android-6.0" />  
-  <project name="LineageOS/android_external_busybox"  path="external/busybox"  remote="github" />  
+  <project name="omnirom/android_bootable_recovery" path="bootable/recovery" remote="github" revision="android-6.0" />
+  <project name="LineageOS/android_external_busybox" path="external/busybox" remote="github" />
+  -->
 </manifest>
