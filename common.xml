@@ -5,6 +5,6 @@
   <project name="LineageOS/android_packages_apps_SamsungServiceMode" path="packages/apps/SamsungServiceMode" revision="cm-14.1" />
   <project name="LineageOS/android_packages_apps_FlipFlap" path="packages/apps/FlipFlap" />
   <project name="LineageOS/android_packages_resources_devicesettings" path="packages/resources/devicesettings" /><!-- for FlipFlap -->
-  <project name="LineageOS/android_hardware_samsung" path="hardware/samsung" />
+  <project name="cm-3470/android_hardware_samsung" path="hardware/samsung" />
   <project name="LineageOS/android_external_stlport" path="external/stlport" />
 </manifest>
