@@ -7,4 +7,5 @@
   <project name="LineageOS/android_packages_resources_devicesettings" path="packages/resources/devicesettings" /><!-- for FlipFlap -->
   <project name="cm-3470/android_hardware_samsung" path="hardware/samsung" />
   <project name="LineageOS/android_external_stlport" path="external/stlport" />
+  <project name="cm-3470/android_external_protobuf-compat-2.6" path="external/protobuf-compat-2.6" />
 </manifest>
