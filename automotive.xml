@@ -1,0 +1,13 @@
+<!-- Copied from https://github.com/snappautomotive/firmware-local_manifest/blob/main/snappautomotive.xml -->
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="snappautomotive" fetch="https://github.com/snappautomotive" revision="sa-main"/>
+
+  <!-- Snapp Automotive -->
+
+  <project path="device/hlvs-apps/common" name="hlvs-apps/firmware-device_hlvs-apps_common" remote="github" />  
+  <project path="device/hlvs-apps/emulator" name="firmware-device_snappautomotive_emulator" remote="snappautomotive" />
+  <project path="device/hlvs-apps/rpi" name="firmware-device_snappautomotive_rpi" remote="snappautomotive" />
+  <project path="vendor/hlvs-apps/packages/maps" name="firmware-vendor_snappautomotive_packages_maps" remote="snappautomotive" />
+
+</manifest>
