@@ -1,6 +1,5 @@
-<!--Copied from https://github.com/snappautomotive/firmware_lineage-local_manifest/blob/main/lineage-aaos.xml-->
-
 <?xml version="1.0" encoding="UTF-8"?>
+<!--Copied from https://github.com/snappautomotive/firmware_lineage-local_manifest/blob/main/lineage-aaos.xml-->
 <manifest>
   <remote name="sa-lineage" fetch="https://github.com/snappautomotive" revision="lineage-18.1-AAOS"/>
 

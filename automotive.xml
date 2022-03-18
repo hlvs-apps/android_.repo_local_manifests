@@ -1,5 +1,5 @@
-<!-- Copied from https://github.com/snappautomotive/firmware-local_manifest/blob/main/snappautomotive.xml -->
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Copied from https://github.com/snappautomotive/firmware-local_manifest/blob/main/snappautomotive.xml -->
 <manifest>
   <remote name="snappautomotive" fetch="https://github.com/snappautomotive" revision="sa-main"/>
 
