@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<manifest>
-  <project name="cm-3470/android_device_samsung_degaslte" path="device/samsung/degaslte" remote="github" />
-  <project name="cm-3470/android_vendor_samsung_degaslte" path="vendor/samsung/degaslte" remote="github" />
-  <project name="cm-3470/android_kernel_samsung_degaslte" path="kernel/samsung/degaslte" remote="github" />
-</manifest>
