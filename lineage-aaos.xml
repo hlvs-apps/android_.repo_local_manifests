@@ -4,7 +4,7 @@
   <remote name="sa-lineage" fetch="https://github.com/snappautomotive" revision="lineage-18.1-AAOS"/>
 
   <!-- Override the launcher so we can remove Trebuchet during the build -->
-
+  <remove-project name="platform/packages/apps/Car/Launcher"/>
   <project path="packages/apps/Car/Launcher" name="firmware-packages_apps_car_launcher" remote="sa-lineage" />
 
 </manifest>
